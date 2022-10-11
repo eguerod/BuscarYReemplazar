@@ -1,0 +1,11 @@
+
+.classpath
+.settings/org.eclipse.jdt.core.prefs
+.project
+.settings/org.eclipse.m2e.core.prefs
+.gitattributes
+target/classes/byr/BuscarYReemplazar.class
+target/classes/META-INF/MANIFEST.MF
+target/classes/byr/Main.class
+target/classes/META-INF/maven/dad/BuscarYReemplazar/pom.xml
+target/classes/META-INF/maven/dad/BuscarYReemplazar/pom.properties
