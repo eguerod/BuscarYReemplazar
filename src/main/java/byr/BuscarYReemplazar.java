@@ -43,8 +43,9 @@ public class BuscarYReemplazar extends Application {
 		reemplazarTodoButton = new Button("Reemplazar todo");
 		cerrarButton = new Button("Cerrar");
 		ayudaButton = new Button("Ayuda");
-		//
+		// Características Botones
 		buscarButton.setMaxWidth(Double.MAX_VALUE);
+		buscarButton.setDefaultButton(true);
 		reemplazarButton.setMaxWidth(Double.MAX_VALUE);
 		cerrarButton.setMaxWidth(Double.MAX_VALUE);
 		ayudaButton.setMaxWidth(Double.MAX_VALUE);

@@ -9,3 +9,5 @@ target/classes/META-INF/MANIFEST.MF
 target/classes/byr/Main.class
 target/classes/META-INF/maven/dad/BuscarYReemplazar/pom.xml
 target/classes/META-INF/maven/dad/BuscarYReemplazar/pom.properties
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
