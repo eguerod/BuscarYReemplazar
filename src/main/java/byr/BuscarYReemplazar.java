@@ -1,6 +1,7 @@
 package byr;
 
 import javafx.application.Application;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -8,10 +9,16 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class BuscarYReemplazar extends Application {
@@ -55,6 +62,8 @@ public class BuscarYReemplazar extends Application {
 		botonera.setHgap(5);
 		botonera.setVgap(5);
 //		botonera.setGridLinesVisible(true);
+		botonera.setBackground(new Background(new BackgroundFill(Color.ORANGE,CornerRadii.EMPTY,
+				  Insets.EMPTY)));
 		botonera.addRow(0, buscarButton);
 		botonera.addRow(1, reemplazarButton);
 		botonera.addRow(2, reemplazarTodoButton);
@@ -66,29 +75,34 @@ public class BuscarYReemplazar extends Application {
 		checkers.setHgap(5);
 		checkers.setVgap(5);
 //		checkers.setGridLinesVisible(true);
+		checkers.setBackground(new Background(new BackgroundFill(Color.YELLOW,CornerRadii.EMPTY,
+				  Insets.EMPTY)));
 		checkers.addRow(0, maymin, mayminLabel, atras, atrasLabel);
 		checkers.addRow(1, regexp, regexpLabel, resaltar, resaltarLabel);
 		// GridPane para lo demás
-		GridPane root = new GridPane();
-		root.setPadding(new Insets(5));
-		root.setHgap(5);
-		root.setVgap(5);
+		GridPane panel = new GridPane();
+		panel.setPadding(new Insets(5));
+		panel.setHgap(5);
+		panel.setVgap(5);
 //		root.setGridLinesVisible(true);
-		root.addRow(0, buscarLabel, buscarText);
-		root.addRow(1, reemplazarLabel, reemplazarText);
-		root.addRow(2, new Label(), checkers);
-		root.addColumn(2, botonera);
+		panel.setBackground(new Background(new BackgroundFill(Color.LIGHTGREEN,CornerRadii.EMPTY,
+				  Insets.EMPTY)));
+		panel.addRow(0, buscarLabel, buscarText);
+		panel.addRow(1, reemplazarLabel, reemplazarText);
+		panel.addRow(2, new Label(), checkers);
 		// Estilo de las columnas
 		ColumnConstraints[] cols = { new ColumnConstraints(), new ColumnConstraints(), new ColumnConstraints() };
-		root.getColumnConstraints().setAll(cols);
-		cols[2].setMinWidth(Control.USE_PREF_SIZE);
+		panel.getColumnConstraints().setAll(cols);
+		cols[1].setHgrow(Priority.ALWAYS);
 		// Estilo de las filas
 		RowConstraints [] rows = new RowConstraints[3];
 		for (int i = 0; i < rows.length; i++) {
 			rows[i] = new RowConstraints();
 		}
-		// Otros estilos
-		GridPane.setRowSpan(botonera, 3);
+		//HBox final
+		HBox root = new HBox(panel, botonera);
+		root.setHgrow(panel, Priority.ALWAYS);
+		botonera.setMinWidth(Control.USE_PREF_SIZE);
 		// Ventana
 		primaryStage.setTitle("Buscar y reemplazar");
 		primaryStage.setScene(new Scene(root, 515, 208));
